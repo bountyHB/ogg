@@ -1,0 +1,130 @@
+    /* 01. 매안 */
+    /* 작품 카드 이미지*/
+    #img_film{
+        background-color: black; 
+        border-top-left-radius: 15px; 
+        border-top-right-radius: 15px; 
+        width: 100%;
+        height: 254px;
+    } 
+    #card_film{
+        width: 13rem; 
+        border-radius: 15px;
+    } 
+    /* 02. 디테일 */
+    /* 전체 div 스타일 */
+    #div_review{
+        border-radius: 15px;
+        border: 1px solid lightgray;
+        height: 100%; 
+        padding: 20px;
+    }
+    #div_review2{
+        border-radius: 15px;
+        border: 1px solid lightgray;
+        height: 100%; 
+        padding: 20px;
+        margin-bottom: 30px;
+    }
+    /* 전체 텍스트 스타일 */
+    .detail-text1{
+        margin-left: 10px;
+        font-weight: 600;
+        font-size: 1em;
+    }
+    .detail-text2{
+        margin-left: 10px;
+        margin-top: 3px;
+        font-size: 0.8em;
+    }
+    .detail-text3{
+        margin-left: 10px;
+        margin-top: 3px;
+        font-size: 0.9em;
+    }
+    .detail-text4{
+        font-size: 0.9em;
+    }
+    .detail-text5{
+        font-size: 0.9em;
+    }
+    /* 작품 이미지 */
+    #img_film2{
+        background-color: black; 
+        border-radius: 15px; 
+        width: 12rem; 
+        /* width: 100%; */
+        height: 254px;
+        
+    } 
+    /* 이 감독의 다른 작품 카드 텍스트 */
+    .card-text1{
+        font-weight: 600;
+        font-size: 1em;
+    }
+    .card-text2{
+        margin-top: 3px;
+        font-size: 0.8em;
+    }
+    .card-text3{
+        margin-top: 10px;
+        font-size: 0.7em;
+        color: grey;
+    }
+    /* 코멘트 리뷰 카드 */
+    #card_review{
+        border-radius: 15px;
+        width: 18em;
+    }
+    .row_name{
+        font-weight: 600;
+        font-size: 1.5em;
+    }
+    .reviewbox01{
+        font-size: 0.8em;
+    }
+    .reviewbox02{
+        font-size: 0.85em;
+    }
+
+    /* 04. 보드 디테일 패이지*/
+    .board-text1{
+        margin-left: 10px;
+        font-weight: 600;
+        font-size: 1.2em;
+    }
+    .board-text2{
+        margin-left: 10px;
+        margin-top: 3px;
+        font-size: 0.9em;
+    }
+    .board-text3{
+        margin-left: 10px;
+        margin-top: 3px;
+        font-size: 1em;
+    }
+    .board-text4{
+        width: 8%;
+        margin-left: 10px;
+        font-size: 0.9em;
+    }
+    .board-text5{
+        font-size: 0.9em;
+    }
+
+    /* 댓글 */
+    .row_name{
+        font-weight: 600;
+        font-size: 1.5em;
+    }
+    
+    .reviewbox01{
+        font-size: 0.8em;
+
+    }
+    .reviewbox02{
+        font-size: 0.85em;
+    }
+    a:link{
+        color: black;
+    }
