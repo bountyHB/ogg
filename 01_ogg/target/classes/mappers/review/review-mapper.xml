@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- mybatis mapper 설정 파일임을 선언한다. -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+	<mapper namespace="com.kh.ogg.review.model.mapper.ReviewMapper">
+	
+	<!-- REVIEW sql-->
+	<sql id="reviewSql">
+		SELECT RV_NO, 
+			   F_CODE, 
+			   RV_WRITER_NO, 
+			   RV_DATE, 
+			   RV_UPDATE, 
+			   RV_CONTENT, 
+			   RV_STATUS, 
+			   RV_LIKES, 
+			   RV_CMT_COUNT, 
+			   RV_COUNT
+		FROM REVIEW
+	</sql>
+	
+	<!-- REVIEW_CMT sql-->
+	<sql id="reviewCmtSql">
+		SELECT RV_CMT_NO, 
+			   RV_NO, 
+			   RV_CMT_WRITER_NO, 
+			   RV_CMT_DATE, 
+			   RV_CMT_UPDATE, 
+			   RV_CMT_CONTENT, 
+			   RV_CMT_STATUS, 
+			   RV_CMT_LIKES, 
+			   RV_CMT_GROUP, 
+			   RV_CMT_DEPTH
+		FROM REVIEW_CMT
+	</sql>
+
+	<!-- REVIEW resultMap-->
+	<resultMap type="Review" id="reviewResultMap">
+		<id property="rvNo" column="RV_NO" />
+		<result property="fCode" column="F_CODE" />
+		<result property="rvWriterNo" column="RV_WRITER_NO" />
+		<result property="rvDate" column="RV_DATE" />
+		<result property="rvUpdate" column="RV_UPDATE" />
+		<result property="rvContent" column="RV_CONTENT" />
+		<result property="rvStatus" column="RV_STATUS" />
+		<result property="rvLikes" column="RV_LIKES" />
+		<result property="rvCmtCount" column="RV_CMT_COUNT" />
+		<result property="rvCount" column="RV_COUNT" />
+	</resultMap>	
+
+	<!-- REVIEW-CMT resultMap-->
+	<resultMap type="ReviewComment" id="reviewCommentResultMap">
+		<id property="rvCmtNo" column="RV_CMT_NO" />
+		<result property="rvNo" column="RV_NO" />
+		<result property="rvCmtWriterNo" column="RV_CMT_WRITER_NO" />
+		<result property="rvCmtDate" column="RV_CMT_DATE" />
+		<result property="rvCmtUpDate" column="RV_CMT_UPDATE" />
+		<result property="rvCmtContent" column="RV_CMT_CONTENT" />
+		<result property="rvCmtStatus" column="RV_CMT_STATUS" />
+		<result property="rvCmtLikes" column="RV_CMT_LIKES" />
+		<result property="rvCmtGroup" column="RV_CMT_GROUP" />
+		<result property="rvCmtDepth" column="RV_CMT_DEPTH" />
+	</resultMap>	
+	
+	<!-- 리뷰 개수 조회 -->
+	<select id="selectBoardCount" resultType="_int">
+		SELECT COUNT(*) FROM REVIEW
+	</select>
+
+	<!-- 리뷰 전체 조회 -->
+	<select id="selectAll" resultMap="reviewResultMap">
+		<include refid="reviewSql"></include>
+	</select>
+	
+	<!-- 리뷰 상세 조회 -->
+	<select id="findReviewByNo" parameterType="_int" resultMap="reviewResultMap">
+		<include refid="reviewSql"></include>
+		WHERE RV_STATUS = 'Y' AND RV_NO = #{rvNo}
+	</select>
+</mapper>
