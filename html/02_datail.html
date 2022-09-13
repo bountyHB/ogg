@@ -19,6 +19,8 @@
     <!-- content CSS -->
     <link rel="stylesheet" href="../html/css/ogg_content.css">
 
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
     <title>content</title>
 </head>
 
@@ -117,10 +119,36 @@
         <div id="div_review">
             <div class="row" id="detail-text3">
                 <div class="col-3">이 작품에 대한 평가를 남겨보세요</div>
-                <div class="col-9"><button class="btn btn-primary" type="button">코멘트 남기기</button></div>
+                <!-- <div class="col-9"><button class="btn btn-primary" type="button">코멘트 남기기</button></div> -->
+                <div class="col-9"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever=" 남기기">코멘트 남기기</button></div>
             </div>
         </div>
         <br>
+
+        <!-- 모달 -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">영화 이름</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                        <div class="mb-3">
+                            <label for="message-text" class="col-form-label"></label>
+                            <textarea class="form-control" id="message-text" placeholder="이 작품에 대한 생각을 자유롭게 표현해주세요." style="height: 300px;"></textarea>
+                        </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <span id="textLengthCheck">(0 / 2000)</span>
+                        <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button> -->
+                        <button type="button" class="btn btn-primary" onclick="leavecomment();">저장</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- 3rd row -->
         <div class="col-3 col-sm-12" id="div_review" >
@@ -444,6 +472,19 @@
 </body>
 
 <script>
+    $("#message-text").keyup(function(e) {
+    //console.log("키업!");
+    var content = $(this).val();
+    $("#textLengthCheck").text("(" + content.length + " / 2000)"); //실시간 글자수 카운팅
+    if (content.length > 2000) {
+        alert("최대 2000자까지 입력 가능합니다.");
+        $(this).val(content.substring(0, 2000));
+        $('#textLengthCheck').text("(2000 / 2000");
+    }
+});
+</script>
+
+<script>
     var chart = c3.generate({
     bindto: "#linechart",
     data: {
@@ -453,6 +494,29 @@
         ]
     }
     });
+
+    var exampleModal = document.getElementById('exampleModal')
+    exampleModal.addEventListener('show.bs.modal', function (event) {
+    // Button that triggered the modal
+    var button = event.relatedTarget
+    // Extract info from data-bs-* attributes
+    var recipient = button.getAttribute('data-bs-whatever')
+    // If necessary, you could initiate an AJAX request here
+    // and then do the updating in a callback.
+    //
+    // Update the modal's content.
+    var modalTitle = exampleModal.querySelector('.modal-title')
+    var modalBodyInput = exampleModal.querySelector('.modal-body input')
+
+    modalTitle.textContent = '코멘트' + recipient
+    modalBodyInput.value = recipient
+    })
+
+    function leavecomment(){
+        let message = document.getElementById('message-text').value
+
+        console.log(message)
+    }
 
 </script>
 
