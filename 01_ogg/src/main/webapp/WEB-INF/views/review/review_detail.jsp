@@ -21,7 +21,33 @@
         <!-- 2nd row -->
         <div class="col-3 col-sm-12" id="div_review">
             <!-- 리뷰 내용 -->
-			<jsp:include page="/WEB-INF/views/review/review_box.jsp"/>
+			<div id="div_review">
+				<p id="board-text1">${ review.rvNickname }</p>
+				<hr>
+				<p id="board-text3">
+					<br>
+					${ review.rvContent }
+					<br><br>
+				</p>
+				<hr>
+			    <div class="row" id="detail-text">
+			        <div class="col-sm-1">
+			            <img src="${path}/images/review/heart2.png" style="margin-left: 10px;" height="30px;">
+			            ${ review.rvLikes }
+			        </div>
+			        <div class="col-sm-8">
+			            <img src="${path}/images/review/comment2.png"  height="30px;">
+			            13
+			        </div>
+ 			        <div class="col-sm-3">
+			            <div class="btn-group" role="group" aria-label="Basic mixed styles example" style="padding-left: 55%;">
+			                <button class="btn btn-primary" type="button">수정</button>
+			                <button class="btn btn-primary" type="button">삭제</button>
+			            </div>        
+			        </div> 
+			    </div>
+			</div>
+			<br>
             <!-- 리뷰 내용 끝-->
             
             <!-- 댓글 테이블 -->

@@ -62,8 +62,13 @@ public class ReviewController {
 	}
 	
 	@GetMapping("/review/review_detail")
-	public ModelAndView reviewDetail(ModelAndView model) {
+	public ModelAndView reviewDetail(ModelAndView model, @RequestParam int no) {
+		Review review = null;
+		review = service.findReviewByNo(no);
 		
+		System.out.println(review);
+		
+		model.addObject("review", review);
 		model.setViewName("review/review_detail");
 		
 		return model;

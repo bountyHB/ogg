@@ -21,4 +21,5 @@ public class ReviewComment {
 	private int rvCmtLikes;
 	private int rvCmtGroup;
 	private int rvCmtDepth;
+	private String rvCmtNickname;
 }

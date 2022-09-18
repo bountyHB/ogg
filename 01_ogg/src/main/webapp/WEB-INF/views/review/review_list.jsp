@@ -23,46 +23,78 @@
             <p class="detail-text1" style="margin-left: 10px;">코멘트</p><hr>
 
             <!-- 리뷰 내용 -->
-			<jsp:include page="/WEB-INF/views/review/review_box.jsp"/>
+			<c:if test="${ empty list }">
+				<br>
+				<center>조회된 리뷰가 없습니다. </center>
+				<br><br>
+			</c:if>
+			
+			<c:if test="${ not empty list }">
+				<c:forEach var="review" items="${ list }">
+					<div id="div_review">
+						<a href="${ path }/review/review_detail?no=${ review.rvNo }">
+						    <p id="board-text1">${ review.rvNickname }</p>
+						    <hr>
+						    <p id="board-text3">
+								${ review.rvContent }
+						    </p>
+						    <hr>
+						</a>
+					    <div class="row" id="detail-text">
+					        <div class="col-sm-1">
+					            <img src="${path}/images/review/heart2.png" style="margin-left: 10px;" height="30px;">
+					            ${ review.rvLikes }
+					        </div>
+					        <div class="col-sm-8">
+					            <img src="${path}/images/review/comment2.png"  height="30px;">
+					            13
+					        </div>
+					        <!--<div class="col-sm-1"><button class="btn btn-primary" type="button">수정</button></div>
+					        <div class="col-sm-1"><button class="btn btn-primary" type="button">삭제</button></div> -->
+<!-- 					        <div class="col-sm-3">
+					            <div class="btn-group" role="group" aria-label="Basic mixed styles example" style="padding-left: 55%;">
+					                <button class="btn btn-primary" type="button">수정</button>
+					                <button class="btn btn-primary" type="button">삭제</button>
+					            </div>        
+					        </div> -->
+					    </div>
+					</div>
+					<br>
+				</c:forEach>
+			</c:if>
             <!-- 리뷰 내용 끝-->
 
-            <!-- 리뷰 내용 -->
-			<jsp:include page="/WEB-INF/views/review/review_box.jsp"/>
-            <!-- 리뷰 내용 끝-->
-
-            <!-- 리뷰 내용 -->
-			<jsp:include page="/WEB-INF/views/review/review_box.jsp"/>
-            <!-- 리뷰 내용 끝-->
-
-            <!-- 리뷰 내용 -->
-			<jsp:include page="/WEB-INF/views/review/review_box.jsp"/>
-            <!-- 리뷰 내용 끝-->
-            
         </div>
         <!-- 2nd row 끝 -->
 
     <br>
+    
     <!-- 페이징 -->
     <div class="row">
         <div class="col-4"></div>
         <div class="col-4">
             <ul class="pagination justify-content-center">
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
+            	<!-- 맨 처음으로 -->
+                <li class="page-item"><a class="page-link" href="${ path }/review/review_list?page=1">&lt;&lt;</a></li>
+                
+                <!-- 이전 페이지로 -->
+                <li class="page-item"><a class="page-link" href="${ path }/review/review_list?page=${ pageInfo.prevPage }">&lt;</a></li>
+                
+                <!--  10개 페이지 목록 -->
+				<c:forEach begin="${ pageInfo.startPage }" end="${ pageInfo.endPage }" varStatus="status">
+					<c:if test="${ status.current == pageInfo.currentPage }">
+                  		<li class="page-item disabled"><a class="page-link" href="#">${ status.current }</a></li>
+					</c:if>
+					<c:if test="${ status.current != pageInfo.currentPage }">
+                  		<li class="page-item"><a class="page-link" href="${ path }/review/review_list?page=${ status.current }">${ status.current }</a></li>
+					</c:if>
+				</c:forEach>
+				  <!-- 다음 페이지로 -->
+				  <li class="page-item"><a class="page-link" href="${ path }/review/review_list?page=${ pageInfo.nextPage }">&gt;</a></li>
+                  <!-- 맨 끝으로 -->
+                  <li class="page-item"><a class="page-link" href="${ path }/review/review_list?page=${ pageInfo.maxPage }">&gt;&gt;</a></li>
             </ul>
         </div>
-        <div class="col-4"></div>
     </div>
     <!-- 페이징 끝 -->
 

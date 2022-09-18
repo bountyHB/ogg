@@ -17,18 +17,6 @@ public class ReviewServiceImpl implements ReviewService {
 	private ReviewMapper mapper;
 	
 	@Override
-	public Review selectAll() {
-		
-		return mapper.selectAll();
-	}
-
-	@Override
-	public Review findReviewByNo(int no) {
-		
-		return mapper.findReviewByNo(no);
-	}
-
-	@Override
 	public int getBoardCount() {
 		
 		return mapper.selectBoardCount();
@@ -43,5 +31,10 @@ public class ReviewServiceImpl implements ReviewService {
 		return mapper.selectAll(rowBounds);
 	}
 
+	@Override
+	public Review findReviewByNo(int no) {
+		
+		return mapper.selectReviewByNo(no);
+	}
 
 }

@@ -10,11 +10,10 @@ import com.kh.ogg.review.model.vo.Review;
 @Mapper
 public interface ReviewMapper {
 
-	Review selectAll();
-
-	Review findReviewByNo(int no);
-
 	int selectBoardCount();
 
 	List<Review> selectAll(RowBounds rowBounds);
+
+	Review selectReviewByNo(int no);
+
 }

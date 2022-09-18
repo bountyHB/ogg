@@ -12,10 +12,6 @@ public interface ReviewService {
 
 	List<Review> getBoardList(PageInfo pageInfo);
 
-	Review selectAll();
-
 	Review findReviewByNo(int no);
-
-
 
 }

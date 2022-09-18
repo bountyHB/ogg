@@ -126,6 +126,10 @@
         font-size: 0.85em;
     }
 
+	.page-link{
+		color: grey;
+	}
+
     /* 04. 보드 디테일 패이지*/
     #board-text1{
         margin-left: 10px;

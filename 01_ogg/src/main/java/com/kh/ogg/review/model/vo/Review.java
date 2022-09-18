@@ -19,6 +19,6 @@ public class Review {
 	private String rvContent;
 	private String rvStatus;
 	private int rvLikes;
-	private int rvCmtCount;
-	private int rvCount;
+	private int rvReadCount;
+	private String rvNickname;
 }
