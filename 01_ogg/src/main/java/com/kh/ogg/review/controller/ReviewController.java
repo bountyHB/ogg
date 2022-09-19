@@ -1,5 +1,6 @@
 package com.kh.ogg.review.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,6 +18,7 @@ import com.kh.ogg.common.util.PageInfo;
 import com.kh.ogg.review.model.service.FilmService;
 import com.kh.ogg.review.model.service.ReviewService;
 import com.kh.ogg.review.model.vo.Film;
+import com.kh.ogg.review.model.vo.Kofic;
 import com.kh.ogg.review.model.vo.Review;
 import com.kh.ogg.review.model.vo.ReviewCmt;
 
@@ -28,11 +30,23 @@ public class ReviewController {
 	private ReviewService service;
 	
 	@Autowired
-	private FilmService fService;
+	private FilmService filmService;
 	
 	@GetMapping("/film_list")
 	public ModelAndView filmList(ModelAndView model) {
+		List<Kofic> kofic = filmService.getBoxOffice();
 		
+		System.out.println(kofic);
+		
+		List<Film> list = new ArrayList<>();
+		for(Kofic kf : kofic) {
+			Film nf = filmService.getMovieDetail(kf.getMovieNm(), 0);
+			
+			list.add(nf);
+		}
+		
+		model.addObject("kofic", kofic);
+		model.addObject("list", list);
 		model.setViewName("review/film_list");
 		
 		return model;
@@ -49,7 +63,7 @@ public class ReviewController {
 		System.out.println(keyword);
 
 		if(keyword != null) {
-			list = fService.searchFilm(keyword, 8, page);
+			list = filmService.searchFilm(keyword, 8, page);
 			model.addObject("list", list);
 		}
 		
@@ -61,7 +75,17 @@ public class ReviewController {
 	}
 	
 	@GetMapping("/film_detail")
-	public ModelAndView filmDetail(ModelAndView model) {
+	public ModelAndView filmDetail(ModelAndView model,
+			@RequestParam("title") String keyword, 
+			@RequestParam("year") String year) {
+		
+		if (keyword != null) {
+			if (year.trim().isEmpty()) {
+				year = "0";
+			}
+			Film film = filmService.getMovieDetail(keyword, Integer.parseInt(year));
+			model.addObject("film", film);
+		}
 		
 		model.setViewName("review/film_detail");
 		
@@ -70,7 +94,7 @@ public class ReviewController {
 	
 	@GetMapping("/review_list")
 	public ModelAndView reviewList(ModelAndView model,
-		@RequestParam(value = "page", defaultValue = "1") int page) {
+			@RequestParam(value = "page", defaultValue = "1") int page) {
 
 		List<Review> list = null;
 		PageInfo pageInfo = null;

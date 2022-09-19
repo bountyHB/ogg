@@ -39,16 +39,25 @@
                 <!-- 첫번째 슬라이드 -->
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5" id="carousel01">
                 
-                    <div class="col" >
-                        <div class="card" id="card_film">
-                            <img src="${path}/images/review/poster.jpeg" id="img_film">
-                            <div class="card-body">
-                                <div id="card-text1">헌트</div>
-                                <div id="card-text2">2022 ・ 한국</div>
-                                <div id="card-text3">예매율 19% ・ 누적 관객 321만명</div>
-                            </div>
-                        </div>
-                    </div>
+				<c:forEach var="film" begin="0" end="4" items="${ list }">
+	            <div class="col">
+	                <div class="card" id="card_film">
+						<c:choose>
+							<c:when test="${!empty film.image }">
+								<img id="img_film" alt="${ film.title }" src="${ film.image }">
+							</c:when>
+							<c:when test="${empty film.image }">
+	                            <img id="img_film">
+							</c:when>
+						</c:choose>
+	                    <div class="card-body">
+	                        <div id="card-text1">${ film.title }</div>
+	                        <div id="card-text2">${ film.director } ${ film.pubDate }</div>
+	                        <div id="card-text3">${ film.subtitle }</div>
+	                    </div>
+	                </div>
+	            </div>
+				</c:forEach>
 
                 </div>
             </div>
@@ -57,16 +66,25 @@
             <div class="carousel-item">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5" id="carousel01">
                 
-                    <div class="col">
-                        <div class="card" id="card_film">
-                            <img src="${path}/images/review/poster.jpeg" id="img_film">
-                            <div class="card-body">
-                                <div id="card-text1">헌트2</div>
-                                <div id="card-text2">2022 ・ 한국</div>
-                                <div id="card-text3">예매율 19% ・ 누적 관객 321만명</div>
-                            </div>
-                        </div>
-                    </div>
+				<c:forEach var="film" begin="5" end="9" items="${ list }">
+	            <div class="col">
+	                <div class="card" id="card_film">
+						<c:choose>
+							<c:when test="${!empty film.image }">
+								<img id="img_film" alt="${ film.title }" src="${ film.image }">
+							</c:when>
+							<c:when test="${empty film.image }">
+	                            <img id="img_film">
+							</c:when>
+						</c:choose>
+	                    <div class="card-body">
+	                        <div id="card-text1">${ film.title }</div>
+	                        <div id="card-text2">${ film.director } ${ film.pubDate }</div>
+	                        <div id="card-text3">${ film.subtitle }</div>
+	                    </div>
+	                </div>
+	            </div>
+				</c:forEach>
 
                 </div>
             </div>
@@ -99,13 +117,12 @@
                         <div class="card" id="card_film">
                             <img src="${path}/images/review/poster.jpeg" id="img_film">
                             <div class="card-body">
-                                <div id="card-text1">헌트</div>
+                                <div id="card-text1">헌트2</div>
                                 <div id="card-text2">2022 ・ 한국</div>
                                 <div id="card-text3">예매율 19% ・ 누적 관객 321만명</div>
                             </div>
                         </div>
                     </div>
-
  
                 </div>
             </div>
