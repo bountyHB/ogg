@@ -49,19 +49,19 @@
 		<result property="rvNickname" column="M_NICKNAME" />
 	</resultMap>	
 
-	<!-- REVIEW-CMT resultMap-->
-	<resultMap type="ReviewComment" id="reviewCommentResultMap">
-		<id property="rvCmtNo" column="RV_CMT_NO" />
+	<!-- REVIEW-CMTS resultMap-->
+	<resultMap type="ReviewCmt" id="reviewCmtResultMap">
+		<id property="cmtNo" column="CMT_NO" />
 		<result property="rvNo" column="RV_NO" />
-		<result property="rvCmtWriterNo" column="RV_CMT_WRITER_NO" />
-		<result property="rvCmtDate" column="RV_CMT_DATE" />
-		<result property="rvCmtUpDate" column="RV_CMT_UPDATE" />
-		<result property="rvCmtContent" column="RV_CMT_CONTENT" />
-		<result property="rvCmtStatus" column="RV_CMT_STATUS" />
-		<result property="rvCmtLikes" column="RV_CMT_LIKES" />
-		<result property="rvCmtGroup" column="RV_CMT_GROUP" />
-		<result property="rvCmtDepth" column="RV_CMT_DEPTH" />
-		<result property="rvCmtNickname" column="M_NICKNAME" />
+		<result property="cmtWriterNo" column="CMT_WRITER_NO" />
+		<result property="cmtDate" column="CMT_DATE" />
+		<result property="cmtUpDate" column="CMT_UPDATE" />
+		<result property="cmtContent" column="CMT_CONTENT" />
+		<result property="cmtStatus" column="CMT_STATUS" />
+		<result property="cmtLikes" column="CMT_LIKES" />
+		<result property="cmtGroup" column="CMT_GROUP" />
+		<result property="cmtDepth" column="CMT_DEPTH" />
+		<result property="cmtNickname" column="M_NICKNAME" />
 	</resultMap>	
 	
 	<!-- 리뷰 개수 조회 -->
@@ -82,7 +82,7 @@
 	</select>
 	
 	<!-- 댓글 조회 -->
-	<select id="selectReviewCmtByNo" parameterType="_int" resultMap="reviewResultMap">
+	<select id="selectReviewCmtByNo" parameterType="_int" resultMap="reviewCmtResultMap">
 	SELECT RV_CMT_NO, 
 	       RV_NO, 
 	       RV_CMT_WRITER_NO, 
@@ -96,7 +96,7 @@
 	       M.M_NICKNAME
 	FROM REVIEW_CMT R
 	JOIN MEMBER M ON (M.M_NO = R.RV_CMT_WRITER_NO)
-	WHERE RV_STATUS = 'Y' AND RV_NO = #{no}
+	WHERE RV_CMT_STATUS = 'Y' AND RV_NO = #{no}
 	ORDER BY RV_CMT_LIKES DESC
 	</select>
 </mapper>

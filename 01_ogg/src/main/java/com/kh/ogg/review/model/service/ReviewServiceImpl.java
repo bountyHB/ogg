@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.kh.ogg.common.util.PageInfo;
 import com.kh.ogg.review.model.mapper.ReviewMapper;
 import com.kh.ogg.review.model.vo.Review;
+import com.kh.ogg.review.model.vo.ReviewCmt;
 
 @Service
 public class ReviewServiceImpl implements ReviewService {
@@ -35,6 +36,12 @@ public class ReviewServiceImpl implements ReviewService {
 	public Review findReviewByNo(int no) {
 		
 		return mapper.selectReviewByNo(no);
+	}
+
+	@Override
+	public List<ReviewCmt> findReviewCmtByNo(int no) {
+		
+		return mapper.selectReviewCmtByNo(no);
 	}
 
 }

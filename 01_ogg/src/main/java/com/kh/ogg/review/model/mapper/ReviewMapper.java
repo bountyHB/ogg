@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.session.RowBounds;
 
 import com.kh.ogg.review.model.vo.Review;
+import com.kh.ogg.review.model.vo.ReviewCmt;
 
 @Mapper
 public interface ReviewMapper {
@@ -16,4 +17,6 @@ public interface ReviewMapper {
 
 	Review selectReviewByNo(int no);
 
+	List<ReviewCmt> selectReviewCmtByNo(int no);
+	
 }

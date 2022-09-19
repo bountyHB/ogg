@@ -54,9 +54,10 @@
             <div id="div_review">
             <table class="table table-hover" id="review_reply">
                 <tbody >
+                	<c:forEach var="reviewCmt" items="${ reviewCmt }">
                     <tr>
-                        <td id="board-text4">작성자1</td>
-                        <td id="board-text5">댓글 내용 1..</td>
+                        <td id="board-text4">${ reviewCmt.cmtNickname }</td>
+                        <td id="board-text5">${ reviewCmt.cmtContent }</td>
                         <td id="board-text7">
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                                 <button class="btn btn-primary" type="button">수정</button>
@@ -64,50 +65,7 @@
                             </div>    
                         </td>
                     </tr>
-                    <tr>
-                        <td id="board-text4" >작성자2</td>
-                        <td id="board-text5">댓글 내용 2..</td>
-                        <td id="board-text7">
-                            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                <button class="btn btn-primary" type="button">수정</button>
-                                <button class="btn btn-primary" type="button">삭제</button>
-                            </div>    
-                        </td>
-                    </tr>
-                    <tr>
-                        <td id="board-text4">작성자3</td>
-                        <td id="board-text5">댓글 내용 3..</td>
-                        <td id="board-text7">
-                            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                <button class="btn btn-primary" type="button">수정</button>
-                                <button class="btn btn-primary" type="button">삭제</button>
-                            </div>    
-                        </td>
-                    </tr>
-                    <tr>
-                        <td id="board-text4">작성자4</td>
-                        <td id="board-text5">댓글 내용 4..</td>
-                        <td id="board-text7">
-                            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                <button class="btn btn-primary" type="button">수정</button>
-                                <button class="btn btn-primary" type="button">삭제</button>
-                            </div>    
-                        </td>
-                    </tr>
-                    <tr>
-                        <td id="board-text4">작성자5</td>
-                        <td id="board-text5">댓글 내용 5..</td>
-                        <td id="board-text7">
-                            <fieldset>
-
-                                <!-- <div class="btn-group" role="group" aria-label="Basic mixed styles example"> -->
-                                    <div class="btn-group" role="group" aria-label="First group">
-                                        <button class="btn btn-primary" type="button">수정</button>
-                                        <button class="btn btn-primary" type="button">삭제</button>
-                                        </div>    
-                            </fieldset>
-                        </td>
-                    </tr>
+                  </c:forEach>
                 </tbody>
             </table>
             <!-- 리뷰 작성 컨테이너 -->
@@ -117,7 +75,7 @@
                     <textarea style="border: none; resize: none; width: 100%;"></textarea>
                 </div>
                 <div class="text-right mt-1">
-                    <button class="btn btn-primary" type="button" 
+                    <button class="btn btn-primary" type="button"
                     style="margin-left:45%; height: 35px;">등록</button>
                 </div>
             </div>
@@ -128,12 +86,8 @@
     </div>
     <!-- 내용 전체 컨테이너 끝 -->    
     
-    
-    
-    
-    
-    
-    
+	<script>
+	</script>    
 
 	<!-- footer -->
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>

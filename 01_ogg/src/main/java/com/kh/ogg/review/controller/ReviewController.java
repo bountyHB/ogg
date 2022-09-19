@@ -1,24 +1,36 @@
 package com.kh.ogg.review.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.ogg.common.util.PageInfo;
+import com.kh.ogg.review.model.service.FilmService;
 import com.kh.ogg.review.model.service.ReviewService;
+import com.kh.ogg.review.model.vo.Film;
 import com.kh.ogg.review.model.vo.Review;
+import com.kh.ogg.review.model.vo.ReviewCmt;
 
 @Controller
+@RequestMapping("/review")
 public class ReviewController {
 	
 	@Autowired
 	private ReviewService service;
 	
-	@GetMapping("/review/film_list")
+	@Autowired
+	private FilmService fService;
+	
+	@GetMapping("/film_list")
 	public ModelAndView filmList(ModelAndView model) {
 		
 		model.setViewName("review/film_list");
@@ -26,15 +38,29 @@ public class ReviewController {
 		return model;
 	}
 	
-	@GetMapping("/review/film_search")
-	public ModelAndView filmSearch(ModelAndView model) {
+	@GetMapping("/film_search")
+	public ModelAndView filmSearch(ModelAndView model, 
+			@RequestParam(required = false) String keyword,
+			@RequestParam(value = "page", defaultValue = "1") int page)  {
+
+		List<Film> list = null;
+		page = (page - 1) * 10 + 1;
 		
+		System.out.println(keyword);
+
+		if(keyword != null) {
+			list = fService.searchFilm(keyword, 8, page);
+			model.addObject("list", list);
+		}
+		
+		System.out.println(list);
+	
 		model.setViewName("review/film_search");
 		
 		return model;
 	}
 	
-	@GetMapping("/review/film_detail")
+	@GetMapping("/film_detail")
 	public ModelAndView filmDetail(ModelAndView model) {
 		
 		model.setViewName("review/film_detail");
@@ -42,7 +68,7 @@ public class ReviewController {
 		return model;
 	}
 	
-	@GetMapping("/review/review_list")
+	@GetMapping("/review_list")
 	public ModelAndView reviewList(ModelAndView model,
 		@RequestParam(value = "page", defaultValue = "1") int page) {
 
@@ -61,17 +87,31 @@ public class ReviewController {
 		return model;
 	}
 	
-	@GetMapping("/review/review_detail")
+	@GetMapping("/review_detail")
 	public ModelAndView reviewDetail(ModelAndView model, @RequestParam int no) {
 		Review review = null;
+		List<ReviewCmt> reviewCmt = null;
 		review = service.findReviewByNo(no);
+		reviewCmt = service.findReviewCmtByNo(no);
 		
 		System.out.println(review);
+		System.out.println(reviewCmt);
 		
 		model.addObject("review", review);
+		model.addObject("reviewCmt", reviewCmt);
 		model.setViewName("review/review_detail");
 		
 		return model;
 	}
 	
+	@PostMapping("/review_cmt_write")
+	@ResponseBody
+	public Map<String, Boolean> cmtWrite(@RequestParam String userId) {
+		
+		Map<String, Boolean> map = new HashMap<>();
+		
+//		map.put("duplicate", service.isDulicateID(userId));
+		
+		return map;
+	}
 }
