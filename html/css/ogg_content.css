@@ -11,6 +11,11 @@
         width: 14rem; 
         border-radius: 15px;
     } 
+    #card_film3{
+        width: 14rem; 
+        border-radius: 15px;
+        margin-bottom: 15px;
+    } 
     /* 02. 디테일 */
     /* 작품 카드 이미지*/
     #img_film2{

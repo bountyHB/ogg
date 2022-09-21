@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.min.css"/>
+
+    <!-- main CSS -->
+    <link rel="stylesheet" href="../html/css/ogg_common.css">
+
+    <!-- content CSS -->
+    <link rel="stylesheet" href="../html/css/ogg_content.css">
+
+    <!-- my js -->
+    <script defer src="../html/js/film_detail.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+    <title>content</title>
+</head>
+
+<body>
+    <!-- javascript -->
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.min.js"></script>
+    <script src="./js/ogg_content.js"></script>
+    <!-- 메인 로고와 상단 우측 메뉴 포함한 header> -->
+    <header>
+        <div class="width-container">
+            <div class="logoBox">
+                <a href="javascript:">
+                    <img src="https://buts.co.kr/thema/Buts/colorset/Basic/img/small-butslogo.png" srcset="https://buts.co.kr/thema/Buts/colorset/Basic/img/2x/small-butslogo.png 2x" alt="loogo" title=""></a>
+            </div>
+
+            <div class="btnBox">
+                <a href="javascript:" class="loginBtn">로그인</a>
+            </div>
+        </div>
+
+        <div class="menu-container">
+            <ul class="menuBox">
+                <li>
+                    <a href="javascript:">파티 만들기</a>
+                </li>
+                <li>
+                    <a href="javascript:">파티 찾기</a>
+                </li>
+                <li>
+                    <a href="javascript:">리뷰</a>
+                </li>
+                <li>
+                    <a href="javascript:">커뮤니티</a>
+                </li>
+                <li>
+                    <a href="javascript:">이벤트</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- 내용 전체 컨테이너 -->
+    <br><br><br><br><br>
+    <div class="container" style="margin-bottom: 100px; padding-left: 60px; padding-right: 60px;">
+        <!-- 1st row -->
+        <div class="container" style="height: 250px;">
+            <div class="row" style="height: 100%; "> 
+                <div class="col-sm-3" style="height: 100%; width: 13em;">
+                    <div class="card" style="height: 100%; border: none">
+                        <img src="./img/dec.jpeg"  id="img_film3">
+                    </div>
+                </div>
+                <div class="col-sm-9" style="margin-top: 5%;" >
+                    <div class="row" style="font-size: 2em; font-weight: 700; margin-top: 35px; margin-bottom: 10px; margin-left: 1px;" >
+                        헤어질 결심
+                    </div>
+                    <div class="row" style="font-size: 1em; color: grey; margin-bottom: 30px; margin-left: 1px;" >
+                        2021 ・ 로맨스/드라마/미스터리 ・ 한국
+                    </div>
+                    <div class="row">
+                        <div class="col-3 col-sm-3" style="margin-bottom: 10px;">
+                            <div class="star-rating space-x-4 mx-auto">
+                                <input type="radio" id="5-stars" name="rating" value="5" v-model="ratings"/>
+                                <label for="5-stars" class="star pr-4">★&nbsp;</label>
+                                <input type="radio" id="4-stars" name="rating" value="4" v-model="ratings"/>
+                                <label for="4-stars" class="star">★&nbsp;</label>
+                                <input type="radio" id="3-stars" name="rating" value="3" v-model="ratings"/>
+                                <label for="3-stars" class="star">★&nbsp;</label>
+                                <input type="radio" id="2-stars" name="rating" value="2" v-model="ratings"/>
+                                <label for="2-stars" class="star">★&nbsp;</label>
+                                <input type="radio" id="1-star" name="rating" value="1" v-model="ratings" />
+                                <label for="1-star" class="star">★&nbsp;</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2">
+                            <a href="">
+                                <img src="./IMG/plus.png" height="30px;">
+                                보고싶어요
+                            </a>
+                        </div>
+                        <div class="col-3 col-sm-3">
+                            <a href="">
+                                <img src="./IMG/pen.png" height="30px;">
+                                코멘트
+                            </a>
+                        </div>
+                        <div class="col-3 col-sm-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <!-- 2nd row -->
+        <div id="div_review">
+            <div class="row" id="detail-text3">
+                <div class="col-3">이 작품에 대한 평가를 남겨보세요</div>
+                <!-- <div class="col-9"><button class="btn btn-primary" type="button">코멘트 남기기</button></div> -->
+                <div class="col-9"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever=" 남기기">코멘트 남기기</button></div>
+            </div>
+        </div>
+        <br>
+
+        <!-- 모달 -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">영화 이름</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                        <div class="mb-3">
+                            <label for="message-text" class="col-form-label"></label>
+                            <textarea class="form-control" id="message-text" placeholder="이 작품에 대한 생각을 자유롭게 표현해주세요." style="height: 300px;"></textarea>
+                        </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <span id="textLengthCheck">(0 / 2000)</span>
+                        <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button> -->
+                        <button type="button" class="btn btn-primary" onclick="leavecomment();">저장</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3rd row -->
+        <div class="col-3 col-sm-12" id="div_review" >
+            <p id="detail-text1">기본 정보</p>
+            <hr>
+            <p id="detail-text2">헤어질 결심 <br> 2021 · 한국 · 로맨스 <br> 2시간 18분 · 15세</p>
+            <br>
+            <p id="detail-text3">
+                산 정상에서 추락한 한 남자의 변사 사건. 담당 형사 '해준'(박해일)은 사망자의 아내 '서래'(탕웨이)와 마주하게 된다.
+                <br><br>
+                “산에 가서 안 오면 걱정했어요, 마침내 죽을까 봐.”
+                <br><br>
+                남편의 죽음 앞에서 특별한 동요를 보이지 않는 서래. 경찰은 보통의 유가족과는 다른 서래를 용의선상에 올린다. 해준은 사건 당일의 알리바이 탐문과 신문, 잠복수사를 통해 서래를 알아가면서 그녀에 대한 관심이 점점 커져가는 것을 느낀다. 한편, 좀처럼 속을 짐작하기 어려운 서래는 상대가 자신을 의심한다는 것을 알면서도 조금의 망설임도 없이 해준을 대하는데….
+                <br><br>
+                진심을 숨기는 용의자<br>
+                용의자에게 의심과 관심을 동시에 느끼는 형사<br>
+                그들의 <헤어질 결심><br>
+            </p>
+        </div>    
+        <br>
+
+        <!-- 4th row -->
+        <div class="col-3 col-sm-12" id="div_review">
+            <p class="detail-text1">별점 그래프</p>
+            <hr> 
+            <div id="linechart"></div>
+        </div>    
+        <br>
+        
+        <!-- 5th row -->
+        <div class="col-3 col-sm-12" id="div_review">
+            <p id="detail-text1">코멘트 <a href="" id="more-text1" style="margin-left: 90%;">더보기</a></p>
+            <hr>
+
+            <!-- div -->
+            <div class="container">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4" id="card_review_row">
+                    <div class="col">
+                        <!-- 리뷰 카드 -->
+                        <div class="card" id="card_review">
+                            <div class="card-body">
+                                <p id="detail-text1">작성자</p>
+                                <hr>
+                                <p id="detail-text3">
+                                    영화 리뷰 내용 <br>
+                                    영화 리뷰 내용 <br>
+                                    영화 리뷰 내용 <br>
+                                    영화 리뷰 내용 <br>
+                                    영화 리뷰 내용 <br>
+                                </p><hr>
+                                    <div class="row" id="detail-text">
+                                        <div class="col">
+                                            <img src="./img/heart2.png" style="margin-left: 10px;" height="26px;">
+                                            273
+                                        </div>
+                                        <div class="col">
+                                            <img src="./img/comment2.png"  height="26px;">
+                                            13
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <!-- 리뷰 카드 -->
+                        <div class="card" id="card_review">
+                            <div class="card-body">
+                                <p id="detail-text1">작성자</p>
+                                <hr>
+                                <p id="detail-text3">
+                                    영화 리뷰 내용 <br>
+                                    영화 리뷰 내용 <br>
+                                    영화 리뷰 내용 <br>
+                                    영화 리뷰 내용 <br>
+                                    영화 리뷰 내용 <br>
+                                </p><hr>
+                                    <div class="row" id="detail-text">
+                                        <div class="col">
+                                            <img src="./img/heart2.png" style="margin-left: 10px;" height="26px;">
+                                            273
+                                        </div>
+                                        <div class="col">
+                                            <img src="./img/comment2.png"  height="26px;">
+                                            13
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <!-- 리뷰 카드 -->
+                        <div class="card" id="card_review">
+                            <div class="card-body">
+                                <p id="detail-text1">작성자</p>
+                                <hr>
+                                <p id="detail-text3">
+                                    영화 리뷰 내용 <br>
+                                    영화 리뷰 내용 <br>
+                                    영화 리뷰 내용 <br>
+                                    영화 리뷰 내용 <br>
+                                    영화 리뷰 내용 <br>
+                                </p><hr>
+                                    <div class="row" id="detail-text">
+                                        <div class="col">
+                                            <img src="./img/heart2.png" style="margin-left: 10px;" height="26px;">
+                                            273
+                                        </div>
+                                        <div class="col">
+                                            <img src="./img/comment2.png"  height="26px;">
+                                            13
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <!-- 리뷰 카드 -->
+                        <div class="card" id="card_review">
+                            <div class="card-body">
+                                <p id="detail-text1">작성자</p>
+                                <hr>
+                                <p id="detail-text3">
+                                    영화 리뷰 내용 <br>
+                                    영화 리뷰 내용 <br>
+                                    영화 리뷰 내용 <br>
+                                    영화 리뷰 내용 <br>
+                                    영화 리뷰 내용 <br>
+                                </p><hr>
+                                    <div class="row" id="detail-text">
+                                        <div class="col">
+                                            <img src="./img/heart2.png" style="margin-left: 10px;" height="26px;">
+                                            273
+                                        </div>
+                                        <div class="col">
+                                            <img src="./img/comment2.png"  height="26px;">
+                                            13
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 리뷰 카드 끝 -->
+                </div>
+            </div>
+            <!-- div 끝 -->
+        </div>
+        <br>
+
+        <!-- 6th row -->
+        <div class="col-4 col-sm-12" id="div_review">
+            <p id="detail-text1">이 감독의 다른 작품 <a href="" id="more-text1" style="margin-left: 83%;">전체보기</a></p>
+            <hr>
+
+            <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false">
+                <div class="carousel-inner">
+                    <!-- 첫번째 슬라이드 -->
+                    <div class="carousel-item active">
+                    <!-- 카드 이미지 -->
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4" id="carousel01">
+                        <div class="col">
+                            <div class="card" id="card_film2">
+                                <img id="img_film2">
+                                <div class="card-body">
+                                    <div id="card-text1">헌트</div>
+                                    <div id="card-text2">2022 ・ 한국</div>
+                                    <div id="card-text3">예매율 19% ・ 누적 관객 321만명</div>
+                                </div>
+                            </div>
+                        </div>
+            
+                        <div class="col">
+                            <div class="card" id="card_film2">
+                                <img id="img_film2">
+                                <div class="card-body">
+                                    <div id="card-text1">육사오(6/45)</div>
+                                    <div id="card-text2">2021 ・ 한국</div>
+                                    <div id="card-text3">예매율 18% ・ 누적 관객 1만명</div>
+                                </div>
+                            </div>
+                        </div>
+            
+                        <div class="col">
+                            <div class="card" id="card_film2">
+                                <img id="img_film2">
+                                <div class="card-body">
+                                    <div id="card-text1">불릿 트레인</div>
+                                    <div id="card-text2">2022 ・ 미국</div>
+                                    <div id="card-text3">예매율 14% ・ 누적 관객 1만명</div>
+                                </div>
+                            </div>
+                        </div>
+            
+                        <div class="col">
+                            <div class="card" id="card_film2">
+                                <img id="img_film2">
+                                <div class="card-body">
+                                    <div id="card-text1">탑건: 매버릭</div>
+                                    <div id="card-text2">2022 ・ 미국</div>
+                                    <div id="card-text3">예매율 12% ・ 누적 관객 789만명</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+                    <!-- 카드 끝 -->
+                </div>
+                <!-- 첫번째 슬라이드 끝 -->
+
+                <!-- 두번째 슬라이드 -->
+                <div class="carousel-item">
+                <!-- 카드 이미지 -->
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4" id="carousel01">
+                    <div class="col">
+                        <div class="card" id="card_film2">
+                            <img id="img_film2">
+                            <div class="card-body">
+                                <div id="card-text1">헌트</div>
+                                <div id="card-text2">2022 ・ 한국</div>
+                                <div id="card-text3">예매율 19% ・ 누적 관객 321만명</div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="col">
+                        <div class="card" id="card_film2">
+                            <img id="img_film2">
+                            <div class="card-body">
+                                <div id="card-text1">육사오(6/45)</div>
+                                <div id="card-text2">2021 ・ 한국</div>
+                                <div id="card-text3">예매율 18% ・ 누적 관객 1만명</div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="col">
+                        <div class="card" id="card_film2">
+                            <img id="img_film2">
+                            <div class="card-body">
+                                <div id="card-text1">불릿 트레인</div>
+                                <div id="card-text2">2022 ・ 미국</div>
+                                <div id="card-text3">예매율 14% ・ 누적 관객 1만명</div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="col">
+                        <div class="card" id="card_film2">
+                            <img id="img_film2">
+                            <div class="card-body">
+                                <div id="card-text1">탑건: 매버릭</div>
+                                <div id="card-text2">2022 ・ 미국</div>
+                                <div id="card-text3">예매율 12% ・ 누적 관객 789만명</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>    
+                <!-- 카드 끝 -->
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+            
+        </div>
+        </div>
+        <!-- 6th row 끝 -->
+
+    </div>
+    <!-- 내용 전체 컨테이너 끝 -->
+
+    <!-- 푸터 -->
+    <footer>
+        <div class="width-container">
+            <div class="contentWrap">
+                <div class="logoBox">
+                    <img src="https://buts.co.kr/thema/Buts/colorset/Basic/img/small-butslogo-glay.png" alt="lgooIcon">
+                </div>
+                <a href="javascript:" target="_blank" class="v-bar">회사 소개</a>
+                <a href="javascript:" target="_blank" class="v-bar">제휴문의</a>
+                <a href="javascript:" target="_blank" class="v-bar">제휴문의</a>
+                <a href="javascript:" target="_blank" class="v-bar">1:1문의하기</a>
+                <a href="javascript:" target="_blank" class="v-bar"><strong>개인정보처리방침</strong></a>
+                <a href="javascript:" target="_blank" class="v-bar">이용약관</a>
+                <a href="javascript:" target="_blank" class="v-bar">FAQ</a>
+                <br><br>
+                <span class="v-bar">상호 : 벗츠</span>
+                <span>대표 : 김시진</span>
+                <br>
+                <span>주소 : 경기도 성남시 분당구 서현동 245-4 엘지분당에클라트2차 1221호</span>
+				<br>
+				<span class="v-bar">사업자등록번호 : 375-36-00640</span>
+				<span class="v-bar"><a href="http://www.ftc.go.kr/info/bizinfo/communicationList.jsp" target="_blank"> <strong>사업자정보확인</strong></a></span>
+				<span>통신판매번호 : 제 2019-의정부송산-040호</span>
+				<br>
+				<span class="v-bar">개인정보보호책임 : 김시진</span> <span>호스팅 사업자 : Amazon Web Service(AWS)</span>
+				<br>
+				<span class="v-bar">이메일 : <a href="mailto:manager@buts.co.kr">manager@buts.co.kr</a></span> <span>대표전화 : 070-4354-1015</span>
+				<br>
+				<br>
+				<span>Copyright © 2022 Buts Inc. All rights reserved.</span>
+            </div>
+        </div>
+    </footer>
+    <footer>
+        <div class="width-container">
+        벗츠는 통신판매중개자이며, 통신판매의 당사자가 아닙니다.파티정보, 구매에 관한 의무와 책임은 판매자에게 있습니다.<br>
+        벗츠는 소비자 보호와 안전거래를 위해고객센터(manager@buts.co.kr)를 운영하고 있으며,분쟁이 발생 된 경우 별도의 분쟁처리절차에 의거분쟁해결 및 청약철회 등이 진행 됩니다.
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+</body>
+
+<script>
+    $("#message-text").keyup(function(e) {
+    //console.log("키업!");
+    var content = $(this).val();
+    $("#textLengthCheck").text("(" + content.length + " / 2000)"); //실시간 글자수 카운팅
+    if (content.length > 2000) {
+        alert("최대 2000자까지 입력 가능합니다.");
+        $(this).val(content.substring(0, 2000));
+        $('#textLengthCheck').text("(2000 / 2000");
+    }
+});
+</script>
+
+<script>
+    var chart = c3.generate({
+    bindto: "#linechart",
+    data: {
+        columns: [
+        ['data1', 30, 200, 100, 400, 150, 250],
+        ['data2', 50, 20, 10, 40, 15, 25]
+        ]
+    }
+    });
+
+    var exampleModal = document.getElementById('exampleModal')
+    exampleModal.addEventListener('show.bs.modal', function (event) {
+    // Button that triggered the modal
+    var button = event.relatedTarget
+    // Extract info from data-bs-* attributes
+    var recipient = button.getAttribute('data-bs-whatever')
+    // If necessary, you could initiate an AJAX request here
+    // and then do the updating in a callback.
+    //
+    // Update the modal's content.
+    var modalTitle = exampleModal.querySelector('.modal-title')
+    var modalBodyInput = exampleModal.querySelector('.modal-body input')
+
+    modalTitle.textContent = '코멘트' + recipient
+    modalBodyInput.value = recipient
+    })
+
+    function leavecomment(){
+        let message = document.getElementById('message-text').value
+
+        console.log(message)
+    }
+
+</script>
+
+</html>
