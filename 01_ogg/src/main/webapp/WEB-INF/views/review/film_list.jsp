@@ -11,6 +11,8 @@
     <!-- my CSS -->
     <link rel="stylesheet" href="${path}/css/review/ogg_review.css">
     
+    <!-- my JS -->
+    <script defer src="${path}/js/review/film_main.js"></script>
    	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 
     <!-- 내용 전체 컨테이너 -->
@@ -19,7 +21,7 @@
 
         <div class="row">
             <div class="col" style="margin-left: 5%;">
-                <p class="row_name">박스오피스 순위 </p>
+                <p class="row_name">인기 영화 </p>
             </div>
             <div class="col">
             </div>
@@ -35,58 +37,12 @@
         <!-- 1st row -->
         <div id="carouselExampleControls1" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
-            <div class="carousel-item active">
-                <!-- 첫번째 슬라이드 -->
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5" id="carousel01">
-                
-				<c:forEach var="film" begin="0" end="4" items="${ list }">
-	            <div class="col">
-	                <div class="card" id="card_film">
-						<c:choose>
-							<c:when test="${!empty film.image }">
-								<img id="img_film" alt="${ film.title }" src="${ film.image }">
-							</c:when>
-							<c:when test="${empty film.image }">
-	                            <img id="img_film">
-							</c:when>
-						</c:choose>
-	                    <div class="card-body">
-	                        <div id="card-text1">${ film.title }</div>
-	                        <div id="card-text2">${ film.director } ${ film.pubDate }</div>
-	                        <div id="card-text3">${ film.subtitle }</div>
-	                    </div>
-	                </div>
-	            </div>
-				</c:forEach>
-
-                </div>
+            <!-- 첫번째 슬라이드 -->
+            <div class="carousel-item active" id="carousel1">
             </div>
 
             <!-- 두번째 슬라이드 -->
-            <div class="carousel-item">
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5" id="carousel01">
-                
-				<c:forEach var="film" begin="5" end="9" items="${ list }">
-	            <div class="col">
-	                <div class="card" id="card_film">
-						<c:choose>
-							<c:when test="${!empty film.image }">
-								<img id="img_film" alt="${ film.title }" src="${ film.image }">
-							</c:when>
-							<c:when test="${empty film.image }">
-	                            <img id="img_film">
-							</c:when>
-						</c:choose>
-	                    <div class="card-body">
-	                        <div id="card-text1">${ film.title }</div>
-	                        <div id="card-text2">${ film.director } ${ film.pubDate }</div>
-	                        <div id="card-text3">${ film.subtitle }</div>
-	                    </div>
-	                </div>
-	            </div>
-				</c:forEach>
-
-                </div>
+            <div class="carousel-item" id="carousel2">
             </div>
 
         </div>
@@ -99,50 +55,22 @@
             <span class="visually-hidden">Next</span>
         </button>
         </div>
-        <!-- 2nd row 끝 -->
+        <!-- 1st row 끝 -->
 
         <div style="margin-top: 40px; margin-bottom: 20px;">
-            <p class="row_name" style="margin-left: 5%;">내가 찜한 작품</p>
+            <p class="row_name" style="margin-left: 5%;">인기 드라마</p>
             <hr>
         </div>
 
         <!-- 2nd row -->
         <div id="carouselExampleControls2" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
-            <div class="carousel-item active">
-                <!-- 첫번째 슬라이드 -->
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5" id="carousel01">
-                
-                    <div class="col">
-                        <div class="card" id="card_film">
-                            <img src="${path}/images/review/poster.jpeg" id="img_film">
-                            <div class="card-body">
-                                <div id="card-text1">헌트2</div>
-                                <div id="card-text2">2022 ・ 한국</div>
-                                <div id="card-text3">예매율 19% ・ 누적 관객 321만명</div>
-                            </div>
-                        </div>
-                    </div>
- 
-                </div>
+            <!-- 첫번째 슬라이드 -->
+            <div class="carousel-item active" id="carousel3">
             </div>
 
             <!-- 두번째 슬라이드 -->
-            <div class="carousel-item">
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5" id="carousel01">
-                
-                    <div class="col">
-                        <div class="card" id="card_film">
-                            <img src="${path}/images/review/poster.jpeg" id="img_film">
-                            <div class="card-body">
-                                <div id="card-text1">헌트2</div>
-                                <div id="card-text2">2022 ・ 한국</div>
-                                <div id="card-text3">예매율 19% ・ 누적 관객 321만명</div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+            <div class="carousel-item" id="carousel4">
             </div>
 
         </div>
@@ -155,50 +83,22 @@
             <span class="visually-hidden">Next</span>
         </button>
         </div>
-        <!-- 2nd row 끝 -->
+        <!-- 2nd row 끝 -->        
 
         <div style="margin-top: 40px; margin-bottom: 20px;">
-            <p class="row_name" style="margin-left: 5%;">신작 순위</p>
+            <p class="row_name" style="margin-left: 5%;">내가 찜한 작품</p>
             <hr>
         </div>
 
         <!-- 3rd row -->
         <div id="carouselExampleControls3" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
-            <div class="carousel-item active">
-                <!-- 첫번째 슬라이드 -->
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5" id="carousel01">
-                
-                    <div class="col">
-                        <div class="card" id="card_film">
-                            <img src="${path}/images/review/poster.jpeg" id="img_film">
-                            <div class="card-body">
-                                <div id="card-text1">헌트</div>
-                                <div id="card-text2">2022 ・ 한국</div>
-                                <div id="card-text3">예매율 19% ・ 누적 관객 321만명</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
+            <!-- 첫번째 슬라이드 -->
+            <div class="carousel-item active" id="carousel5">
             </div>
 
             <!-- 두번째 슬라이드 -->
-            <div class="carousel-item">
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5" id="carousel01">
-                
-                    <div class="col">
-                        <div class="card" id="card_film">
-                            <img src="${path}/images/review/poster.jpeg" id="img_film">
-                            <div class="card-body">
-                                <div id="card-text1">헌트2</div>
-                                <div id="card-text2">2022 ・ 한국</div>
-                                <div id="card-text3">예매율 19% ・ 누적 관객 321만명</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
+            <div class="carousel-item" id="carousel6">
             </div>
 
         </div>
@@ -211,19 +111,20 @@
             <span class="visually-hidden">Next</span>
         </button>
         </div>
-        <!-- 3rd row 끝 -->
-
+        <!-- 3rd row 끝 -->  
+        
     </div>
     <!-- 내용 전체 컨테이너 끝 -->
     
     <script>
-
 		$("#searchBtn").on("click", () => {
 			var keyword = $("#searchInput").val();
-				
-		    location.href="${path}/review/film_search?keyword="+keyword+"&page=";
+			
+		    location.href="${path}/review/film_search?keyword="+keyword;
 		});
-    
+		
+		let searchkeyword = "[[${searchkeyword}]]";
+		var contextpath = "${ pageContext.request.contextPath }";
 	</script>
 
 	<!-- footer -->

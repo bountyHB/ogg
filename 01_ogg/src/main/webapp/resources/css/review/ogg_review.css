@@ -11,7 +11,6 @@
         width: 14rem; 
         border-radius: 15px;
     } 
-    /* 검색 후 */
     #card_film3{
         width: 14rem; 
         border-radius: 15px;
@@ -50,6 +49,15 @@
         height: 100%; 
         padding: 20px;
     }
+    
+    #filmDetail2{
+        border-radius: 15px;
+        border: 1px solid lightgray;
+        /* border: 1px solid #cfc9f6; */
+        height: 100%; 
+        padding: 20px;
+    }
+    
     #div_review2{
         border-radius: 15px;
         border: 1px solid lightgray;
@@ -132,10 +140,6 @@
         font-size: 0.85em;
     }
 
-	.page-link{
-		color: grey;
-	}
-
     /* 04. 보드 디테일 패이지*/
     #board-text1{
         margin-left: 10px;
@@ -187,7 +191,7 @@
         color: black;
     }
     /* ver1 */
-    .btn-primary{
+    /* .btn-primary{
         display: flex;
         align-items:center;
         justify-content: center;
@@ -205,10 +209,10 @@
         color: #7e69fe; 
         height: 30px; 
         text-align: center;
-    }
+    } */
 
     /* ver2 */
-/*     .btn-primary{
+    .btn-primary{
         display: flex;
         align-items:center;
         justify-content: center;
@@ -226,7 +230,7 @@
         color: white;
         height: 30px; 
         text-align: center;
-    } */
+    }
 
     /* 별점 */
     .star-rating {

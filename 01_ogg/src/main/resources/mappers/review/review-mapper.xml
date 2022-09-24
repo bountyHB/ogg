@@ -83,20 +83,20 @@
 	
 	<!-- 댓글 조회 -->
 	<select id="selectReviewCmtByNo" parameterType="_int" resultMap="reviewCmtResultMap">
-	SELECT RV_CMT_NO, 
+	SELECT CMT_NO, 
 	       RV_NO, 
-	       RV_CMT_WRITER_NO, 
-	       RV_CMT_DATE, 
-	       RV_CMT_UPDATE, 
-	       RV_CMT_CONTENT, 
-	       RV_CMT_STATUS, 
-	       RV_CMT_LIKES, 
-	       RV_CMT_GROUP, 
-	       RV_CMT_DEPTH, 
+	       CMT_WRITER_NO, 
+	       CMT_DATE, 
+	       CMT_UPDATE, 
+	       CMT_CONTENT, 
+	       CMT_STATUS, 
+	       CMT_LIKES, 
+	       CMT_GROUP, 
+	       CMT_DEPTH, 
 	       M.M_NICKNAME
 	FROM REVIEW_CMT R
-	JOIN MEMBER M ON (M.M_NO = R.RV_CMT_WRITER_NO)
-	WHERE RV_CMT_STATUS = 'Y' AND RV_NO = #{no}
-	ORDER BY RV_CMT_LIKES DESC
+	JOIN MEMBER M ON (M.M_NO = R.CMT_WRITER_NO)
+	WHERE CMT_STATUS = 'Y' AND RV_NO = #{no}
+	ORDER BY CMT_LIKES DESC
 	</select>
 </mapper>

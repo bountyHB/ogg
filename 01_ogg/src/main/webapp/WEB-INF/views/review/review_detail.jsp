@@ -11,6 +11,10 @@
     <!-- my CSS -->
     <link rel="stylesheet" href="${path}/css/review/ogg_review.css">
     
+    <!-- my JS -->
+    <script defer src="${path}/js/review/film_detail.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    
     <!-- 내용 전체 컨테이너 -->
     <br><br><br><br><br>
     <div class="container" style="margin-bottom: 100px; padding-left: 60px; padding-right: 60px;">

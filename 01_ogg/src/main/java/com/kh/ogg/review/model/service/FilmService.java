@@ -86,7 +86,7 @@ public class FilmService {
 						break;
 					} else if ("title".equals(tag)) {
 						if (film != null)
-							film.setTitle(parser.nextText());
+							film.setTitle(parser.nextText().replace("<b>", "").replace("</b>", ""));
 						break;
 					} else if ("link".equals(tag)) {
 						if (film != null)
@@ -157,7 +157,7 @@ public class FilmService {
 						break;
 					} else if ("title".equals(tag)) {
 						if (film != null)
-							film.setTitle(parser.nextText());
+							film.setTitle(parser.nextText().replace("<b>", "").replace("</b>", ""));
 						break;
 					} else if ("link".equals(tag)) {
 						if (film != null)

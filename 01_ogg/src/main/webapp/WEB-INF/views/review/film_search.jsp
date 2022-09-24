@@ -11,6 +11,8 @@
     <!-- my CSS -->
     <link rel="stylesheet" href="${path}/css/review/ogg_review.css">
     
+    <!-- my JS -->
+    <script defer src="${path}/js/review/film_search.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     
     <!-- 내용 전체 컨테이너 -->
@@ -19,7 +21,7 @@
 
         <div class="row">
             <div class="col" style="margin-left: 5%;">
-                <p class="row_name">검색 결과 </p>
+                <p class="row_name">검색 결과</p>
             </div>
             <div class="col">
             </div>
@@ -32,80 +34,25 @@
             <hr>
         </div>
         
-        <!-- 반복 시작 -->
         <!-- 1st row -->
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5" id="carousel01">
-        
-       	<c:if test="${ empty list }">
-       		<br>
-        	<center> 조회된 결과가 없습니다.</center>
-        	<br><br>
-        </c:if>
-        
-        <c:if test="${ not empty list }">
-			<c:forEach var="film" items="${ list }">
-            <div class="col">
-                <div class="card" id="card_film3">
-					<c:choose>
-						<c:when test="${!empty film.image }">
-							<img id="img_film" alt="${ film.title }" src="${ film.image }">
-						</c:when>
-						<c:when test="${empty film.image }">
-                            <img id="img_film">
-						</c:when>
-					</c:choose>
-                    <div class="card-body">
-                        <div id="card-text1">${ film.title }</div>
-                        <div id="card-text2">${ film.director } ${ film.pubDate }</div>
-                        <div id="card-text3">${ film.subtitle }</div>
-                    </div>
-                </div>
-            </div>
-		</c:forEach>
-		</c:if>
+        <div id="search1" class="carousel slide" data-bs-ride="carousel">
+            
         </div>
         <!-- 1st row 끝 -->
-        <br>
-        <!-- 반복 끝 -->
 
     </div>
-    <!-- row end -->
-
-    <!-- 페이징 -->
-    <div class="row">
-        <div class="col-4"></div>
-        <div class="col-4">
-            <ul class="pagination justify-content-center">
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="col-4"></div>
-    </div>
-    <!-- 페이징 끝 -->
-
-    <!-- </div> -->
     <!-- 내용 전체 컨테이너 끝 -->
+    
     <script>
-
 		$("#searchBtn").on("click", () => {
 			var keyword = $("#searchInput").val();
-				
-		    location.href="${path}/review/film_search?keyword="+keyword+"&page=";
+			
+		    location.href="${path}/review/film_search?keyword="+keyword;
 		});
-    
+	
+		let searchkeyword = "[[${searchkeyword}]]";
+		var contextpath = "${ pageContext.request.contextPath }";
 	</script>
-    
+	
     <!-- footer -->
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>

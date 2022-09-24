@@ -14,14 +14,12 @@
     <!-- my CSS -->
     <link rel="stylesheet" href="${path}/css/review/ogg_review.css">
     
-    <!-- my JS -->
-    <script defer src="${path}/js/review/film_detail.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 
     <!-- 내용 전체 컨테이너 -->
     <br><br><br><br><br>
     <div class="container" style="margin-bottom: 100px; padding-left: 60px; padding-right: 60px;">
-		
+
 		<!-- 1st row -->
 		<jsp:include page="/WEB-INF/views/review/film_header.jsp"/>
 
@@ -61,8 +59,22 @@
         </div>
 
         <!-- 3rd row -->
-        <div class="col-3 col-sm-12" id="filmDetail2">
-
+        <div class="col-3 col-sm-12" id="div_review" >
+            <p id="detail-text1">기본 정보</p>
+            <hr>
+            <p id="detail-text2">${ film.title } <br>${ film.director } ${ film.pubDate }<br>${ film.actor }</p>
+            <br>
+            <p id="detail-text3">
+                산 정상에서 추락한 한 남자의 변사 사건. 담당 형사 '해준'(박해일)은 사망자의 아내 '서래'(탕웨이)와 마주하게 된다.
+                <br><br>
+                “산에 가서 안 오면 걱정했어요, 마침내 죽을까 봐.”
+                <br><br>
+                남편의 죽음 앞에서 특별한 동요를 보이지 않는 서래. 경찰은 보통의 유가족과는 다른 서래를 용의선상에 올린다. 해준은 사건 당일의 알리바이 탐문과 신문, 잠복수사를 통해 서래를 알아가면서 그녀에 대한 관심이 점점 커져가는 것을 느낀다. 한편, 좀처럼 속을 짐작하기 어려운 서래는 상대가 자신을 의심한다는 것을 알면서도 조금의 망설임도 없이 해준을 대하는데….
+                <br><br>
+                진심을 숨기는 용의자<br>
+                용의자에게 의심과 관심을 동시에 느끼는 형사<br>
+                그들의 <헤어질 결심><br>
+            </p>
         </div>    
         <br>
 
@@ -76,7 +88,7 @@
         
         <!-- 5th row -->
         <div class="col-3 col-sm-12" id="div_review">
-            <p id="detail-text1">코멘트 <a href="" id="more-text1" style="margin-left: 90%;">더보기</a></p>
+            <p id="detail-text1">코멘트 <a href="${path}/review/review_list" id="more-text1" style="margin-left: 90%;">더보기</a></p>
             <hr>
 
             <!-- div -->
@@ -189,6 +201,7 @@
                             </div>
                         </div>
                     </div>
+
                     <!-- 리뷰 카드 끝 -->
                 </div>
             </div>
@@ -322,54 +335,53 @@
     </div>
     <!-- 내용 전체 컨테이너 끝 -->
 
-	<script>
-	var fcode = "${fcode}";
-	var ftype = "${ftype}";
+<script>
+    $("#message-text").keyup(function(e) {
+    //console.log("키업!");
+    var content = $(this).val();
+    $("#textLengthCheck").text("(" + content.length + " / 2000)"); //실시간 글자수 카운팅
+    if (content.length > 2000) {
+        alert("최대 2000자까지 입력 가능합니다.");
+        $(this).val(content.substring(0, 2000));
+        $('#textLengthCheck').text("(2000 / 2000");
+    }
+});
+</script>
 
-	    $("#message-text").keyup(function(e) {
-	    //console.log("키업!");
-	    var content = $(this).val();
-	    $("#textLengthCheck").text("(" + content.length + " / 2000)"); //실시간 글자수 카운팅
-	    if (content.length > 2000) {
-	        alert("최대 2000자까지 입력 가능합니다.");
-	        $(this).val(content.substring(0, 2000));
-	        $('#textLengthCheck').text("(2000 / 2000");
-	    }
-	});
-	</script>
-	
-	<script>
-	    var chart = c3.generate({
-	    bindto: "#linechart",
-	    data: {
-	        columns: [
-	        ['data1', 30, 200, 100, 400, 150, 250],
-	        ['data2', 50, 20, 10, 40, 15, 25]
-	        ]
-	    }
-	    });
-	
-	    var exampleModal = document.getElementById('exampleModal')
-	    exampleModal.addEventListener('show.bs.modal', function (event) {
-	    // Button that triggered the modal
-	    var button = event.relatedTarget
-	    // Extract info from data-bs-* attributes
-	    var recipient = button.getAttribute('data-bs-whatever')
-	    // If necessary, you could initiate an AJAX request here
-	    // and then do the updating in a callback.
-	    // Update the modal's content.
-	    var modalTitle = exampleModal.querySelector('.modal-title')
-	    var modalBodyInput = exampleModal.querySelector('.modal-body input')
-	
-	    modalTitle.textContent = '코멘트' + recipient
-	    modalBodyInput.value = recipient
-	    })
-	
-	    function leavecomment(){
-	        let message = document.getElementById('message-text').value
-	
-	        console.log(message)
-	    }
+<script>
+    var chart = c3.generate({
+    bindto: "#linechart",
+    data: {
+        columns: [
+        ['data1', 30, 200, 100, 400, 150, 250],
+        ['data2', 50, 20, 10, 40, 15, 25]
+        ]
+    }
+    });
+
+    var exampleModal = document.getElementById('exampleModal')
+    exampleModal.addEventListener('show.bs.modal', function (event) {
+    // Button that triggered the modal
+    var button = event.relatedTarget
+    // Extract info from data-bs-* attributes
+    var recipient = button.getAttribute('data-bs-whatever')
+    // If necessary, you could initiate an AJAX request here
+    // and then do the updating in a callback.
+    //
+    // Update the modal's content.
+    var modalTitle = exampleModal.querySelector('.modal-title')
+    var modalBodyInput = exampleModal.querySelector('.modal-body input')
+
+    modalTitle.textContent = '코멘트' + recipient
+    modalBodyInput.value = recipient
+    })
+
+    function leavecomment(){
+        let message = document.getElementById('message-text').value
+
+        console.log(message)
+    }
+    
     </script>
     
     <!-- footer -->

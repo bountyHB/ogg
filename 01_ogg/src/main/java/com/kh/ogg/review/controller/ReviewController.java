@@ -1,6 +1,5 @@
 package com.kh.ogg.review.controller;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,8 +16,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.kh.ogg.common.util.PageInfo;
 import com.kh.ogg.review.model.service.FilmService;
 import com.kh.ogg.review.model.service.ReviewService;
-import com.kh.ogg.review.model.vo.Film;
-import com.kh.ogg.review.model.vo.Kofic;
 import com.kh.ogg.review.model.vo.Review;
 import com.kh.ogg.review.model.vo.ReviewCmt;
 
@@ -32,61 +29,102 @@ public class ReviewController {
 	@Autowired
 	private FilmService filmService;
 	
+//	@GetMapping("/film_list")
+//	public ModelAndView filmList(ModelAndView model) {
+//		List<Kofic> kofic = filmService.getBoxOffice();
+//		
+//		System.out.println(kofic);
+//		
+//		List<Film> list = new ArrayList<>();
+//		for(Kofic kf : kofic) {
+//			Film film = filmService.getMovieDetail(kf.getMovieNm(), 0);
+//			
+//			list.add(film);
+//		}
+//		
+//		System.out.println(list);
+//		
+//		model.addObject("kofic", kofic);
+//		model.addObject("list", list);
+//		model.setViewName("review/film_list");
+//		
+//		return model;
+//	}
+	
 	@GetMapping("/film_list")
 	public ModelAndView filmList(ModelAndView model) {
-		List<Kofic> kofic = filmService.getBoxOffice();
-		
-		System.out.println(kofic);
-		
-		List<Film> list = new ArrayList<>();
-		for(Kofic kf : kofic) {
-			Film nf = filmService.getMovieDetail(kf.getMovieNm(), 0);
-			
-			list.add(nf);
-		}
-		
-		model.addObject("kofic", kofic);
-		model.addObject("list", list);
 		model.setViewName("review/film_list");
-		
 		return model;
 	}
 	
+//	@GetMapping("/film_search")
+//	public ModelAndView filmSearch(ModelAndView model, 
+//			@RequestParam(required = false) String keyword,
+//			@RequestParam(value = "page", defaultValue = "1") int page)  {
+//
+//		List<Film> list = null;
+//		page = (page - 1) * 10 + 1;
+//		
+//		System.out.println(keyword);
+//
+//		if(keyword != null) {
+//			list = filmService.searchFilm(keyword, 8, page);
+//			model.addObject("list", list);
+//		}
+//		
+//		System.out.println(list);
+//	
+//		model.setViewName("review/film_search");
+//		
+//		return model;
+//	}
+	
 	@GetMapping("/film_search")
-	public ModelAndView filmSearch(ModelAndView model, 
-			@RequestParam(required = false) String keyword,
-			@RequestParam(value = "page", defaultValue = "1") int page)  {
-
-		List<Film> list = null;
-		page = (page - 1) * 10 + 1;
+	public ModelAndView filmSearch(ModelAndView model,
+			@RequestParam("keyword") String keyword)  {
 		
 		System.out.println(keyword);
-
-		if(keyword != null) {
-			list = filmService.searchFilm(keyword, 8, page);
-			model.addObject("list", list);
-		}
-		
-		System.out.println(list);
 	
+		if(keyword != null) {
+			
+			model.addObject("searchkeyword", keyword);
+		}
 		model.setViewName("review/film_search");
 		
 		return model;
 	}
 	
+//	@GetMapping("/film_detail")
+//	public ModelAndView filmDetail(ModelAndView model,
+//			@RequestParam("keyword") String keyword, 
+//			@RequestParam("year") String year) {
+//		
+//		if (keyword != null) {
+//			if (year.trim().isEmpty()) {
+//				year = "0";
+//			}
+//			Film film = filmService.getMovieDetail(keyword, Integer.parseInt(year));
+//			model.addObject("film", film);
+//		}
+//		
+//		model.setViewName("review/film_detail");
+//		
+//		return model;
+//	}
+	
 	@GetMapping("/film_detail")
 	public ModelAndView filmDetail(ModelAndView model,
-			@RequestParam("title") String keyword, 
-			@RequestParam("year") String year) {
+			@RequestParam("fcode") String fcode,
+			@RequestParam("ftype") String ftype)  {
 		
-		if (keyword != null) {
-			if (year.trim().isEmpty()) {
-				year = "0";
-			}
-			Film film = filmService.getMovieDetail(keyword, Integer.parseInt(year));
-			model.addObject("film", film);
+		System.out.println(fcode);
+		System.out.println(ftype);
+
+		if(fcode != null && ftype != null) {
+			
+			model.addObject("fcode", fcode);
+			model.addObject("ftype", ftype);
 		}
-		
 		model.setViewName("review/film_detail");
 		
 		return model;
@@ -95,7 +133,7 @@ public class ReviewController {
 	@GetMapping("/review_list")
 	public ModelAndView reviewList(ModelAndView model,
 			@RequestParam(value = "page", defaultValue = "1") int page) {
-
+		
 		List<Review> list = null;
 		PageInfo pageInfo = null;
 		

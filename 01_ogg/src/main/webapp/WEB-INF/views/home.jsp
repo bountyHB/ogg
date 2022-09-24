@@ -20,7 +20,6 @@
 	<a href="${ path }/review/film_search">작품 검색 페이지 </a><br><br>
 	<a href="${ path }/review/film_detail">작품 상세 페이지 </a><br><br>
 	<a href="${ path }/review/review_list">리뷰 리스트 페이지 </a><br><br>
-	<a href="${ path }/review/review_detail">리뷰 상세 페이지 </a><br><br>
 </p>
 
 </body>
