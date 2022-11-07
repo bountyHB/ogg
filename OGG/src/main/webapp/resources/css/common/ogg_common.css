@@ -1,0 +1,279 @@
+/* 
+====================================================
+OGG Common CSS
+====================================================
+*/
+::selection {
+	background-color : #ffed99;
+	color : #7e69fe;
+}
+
+
+/* 모든 체크박스 체크 시 박스 배경 색 보라색으로 세팅 */
+input[type="checkbox"]:checked{
+	background-color : #7e69fe !important;
+	accent-color: #7e69fe50 !important;
+}
+
+/* ********************* */
+/* ****** 상단 메뉴 ****** */
+/* ********************* */
+header {
+    /* position: absolute; */
+    /* top: 35px; */
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background-color: white;
+    border-bottom: 1px solid #ffe655;
+    z-index: 1000;
+}
+
+/* header .width-container {
+    position: relative;
+    max-width: 1280px;
+    height: 100%;
+    margin: 0 auto;
+} */
+header .width-container {
+    /* position: absolute; */
+    position: relative;
+    /* z-index: 1; */
+    max-width: 1180px;
+    width: 100%;
+    inset: 0px;
+    margin: 0 auto;
+    display: flex;
+}
+
+header .width-container .logoBox {
+    position: relative;
+    display: inline-block;
+    padding-top: 30px;
+    z-index: 99;
+}
+
+header .width-container .btnBox {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 99;
+}
+
+header .width-container .btnBox a.loginBtn {
+    position: relative;
+    display: inline-block;
+    width: 116px;
+    height: 34px;
+    margin-top: 35px;
+    font-size: 16px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 32px;
+    text-decoration: none;
+    border-radius: 17px;
+    border: 1px solid #7e69fe;
+    background-color: #7e69fe;
+}
+
+header .width-container .btnBox a.loginBtn:hover {
+    background-color: #ffffff;
+    color: #7e69fe;
+}
+
+header .width-container .btnBox a.myPageBtn {
+    position: relative;
+    display: inline-block;
+    width: 150px;
+    height: 34px;
+    margin-top: 35px;
+    font-size: 16px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 32px;
+    text-decoration: none;
+    border-radius: 17px;
+    border: 1px solid #7e69fe;
+    background-color: #7e69fe;
+} 
+
+header .width-container .btnBox a.myPageBtn:hover {
+    background-color: #ffffff;
+    color: #7e69fe;
+}
+
+header .width-container .btnBox ul li a.hover_purple:hover {
+	background-color : #7d69fe20 !important;
+}
+
+header .width-container .btnBox ul li a.hover_red:hover {
+	background-color : rgba(255, 99, 71, 0.20) !important;
+}
+
+
+/* 로그인 후 나오는 버튼 */
+header .width-container .btnBox img {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    margin-top: 25px;
+    object-fit: contain;
+}
+
+
+header .menu-container {
+    position: absolute;
+    z-index : 9;
+    top: 0;
+    left: 0;
+    width: 100%;
+    font-size: 0;
+    text-align: center;
+}
+
+header .menu-container ul.menuBox {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+header .menu-container ul.menuBox li {
+    display: inline-block;
+}
+
+header .menu-container ul.menuBox li a {
+    position: relative;
+    display: inline-block;
+    height: 100px;
+    padding: 0 40px;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: #888888;
+    text-align: center;
+    line-height: 100px;
+}
+
+header .menu-container ul.menuBox li a:hover {
+    color: #333333;
+    border-bottom: 3px solid #7e69fe;
+}
+
+
+
+/* ********************* */
+/* ****** Footer ****** */
+/* ******************** */
+
+footer {
+    position: relative;
+    padding: 35px 0;
+    font-size: 12px;
+    font-weight: 300;
+    color: #333;
+    line-height: 20px;
+    background-color: white;
+    border-top: 1px solid #f0eff7;
+    word-break: keep-all;
+}
+
+footer .width-container {
+    position: relative;
+    max-width: 1280px;
+    /* height: 100%; */
+    margin: 0 auto;
+}
+
+footer .width-container .contentWrap {
+    position: relative;
+    padding-left: 125px;
+}
+
+footer .width-container .contentWrap .logoBox {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+footer .width-container .contentWrap .v-bar {
+    margin-right: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+footer .width-container .contentWrap a:link {
+    color: #666666;
+    text-decoration: none;
+}
+
+footer strong {
+    text-decoration: underline;
+}
+
+footer .v-bar::after {
+    right: -11px;
+}
+
+.v-bar::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    height: 12px;
+    margin-top: -6px;
+    border-left: 1px solid #ececec;
+}
+
+footer span {
+    white-space: nowrap;
+}
+
+
+/* *************************** */
+/* ****** 접근 제한 페이지 ****** */
+/* *************************** */
+.accessDenied_section {
+	padding: 80px 0 100px 0;
+    text-align: center;
+    background-color: rgb(244, 244, 250);
+}
+
+.accessDenied_section .emojiIMG {
+    width: 20%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.accessDenied_section .text {
+    margin-top: 30px;
+    font-size: 1.6rem;
+    font-weight : 300;
+}
+
+.accessDenied_section .text .highlight {
+	font-weight: 600;
+    font-size: 2rem;
+}
+
+.accessDenied_section .btnBox {
+	width: 70%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.accessDenied_section .btnBox .gotoMain {
+	text-decoration: none;
+    color: #ffffff;
+    font-size: 1.2rem;
+    background-color: #7e69fe;
+    padding: 10px 40px;
+    border-radius: 10px;
+    border: 1px solid #7e69fe;
+    -webkit-apperance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.accessDenied_section .btnBox .gotoMain:hover {
+	background-color : #ffffff;
+	color : #7e69fe;
+}
