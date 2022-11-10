@@ -1,11 +1,16 @@
 # ogg
 
+## 시연영상
+https://youtu.be/XHX_wdCj69g
+
+## PPT
+
 ![ogg 001](https://user-images.githubusercontent.com/101177300/201001157-f5b72978-b8c4-4ea6-8058-012c0936f14b.png)
 ![ogg 002](https://user-images.githubusercontent.com/101177300/201001194-599289fe-128d-49d6-9073-6a60428aeb24.png)
 ![ogg 003](https://user-images.githubusercontent.com/101177300/201001204-19f83d88-103e-45a7-91b8-bece22beac4c.png)
 ![ogg 004](https://user-images.githubusercontent.com/101177300/201001208-b89f89b9-d5be-492f-a908-cf50076616c4.png)
 ![ogg 005](https://user-images.githubusercontent.com/101177300/201001210-9433c2b2-c1df-4e4b-9d48-77503ba59d7e.png)
-![ogg 006](https://user-images.githubusercontent.com/101177300/201001214-57f3b89b-0dbc-470d-87ab-300b6dc2074d.png)
+![ogg 006](https://user-images.githubusercontent.com/101177300/201001689-a65cf9ca-3a2a-41ac-810b-3210b6deef38.png) 
 ![ogg 007](https://user-images.githubusercontent.com/101177300/201001218-06bf4e2e-3f55-4d42-9475-1c9ae3fd67ef.png)
 ![ogg 008](https://user-images.githubusercontent.com/101177300/201001219-6c08663f-effa-4764-bf4f-b61fe7404877.png)
 ![ogg 009](https://user-images.githubusercontent.com/101177300/201001225-a2b311b3-1ac0-4e3a-9869-9893437c648b.png)
