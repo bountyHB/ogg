@@ -1,4 +1,4 @@
-# ogg
+# Final Project _ OGG
 
 ## 시연영상
 https://youtu.be/XHX_wdCj69g
