@@ -1,7 +1,7 @@
 # Final Project _ OGG
 
 ## notion 
-https://cut-potassium-36a.notion.site/dbd193f789644b4186626a18d1b067a7
+https://www.notion.so/5f548504f2eb4fdeb747a80363619751
 
 ## 시연영상
 https://youtu.be/XHX_wdCj69g
