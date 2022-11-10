@@ -1,10 +1,13 @@
 # Final Project _ OGG
 
+## notion 
+https://cut-potassium-36a.notion.site/dbd193f789644b4186626a18d1b067a7
+
 ## 시연영상
 https://youtu.be/XHX_wdCj69g
 
-## PPT
 
+## PPT
 ![ogg 001](https://user-images.githubusercontent.com/101177300/201001157-f5b72978-b8c4-4ea6-8058-012c0936f14b.png)
 ![ogg 002](https://user-images.githubusercontent.com/101177300/201001194-599289fe-128d-49d6-9073-6a60428aeb24.png)
 ![ogg 003](https://user-images.githubusercontent.com/101177300/201001204-19f83d88-103e-45a7-91b8-bece22beac4c.png)
