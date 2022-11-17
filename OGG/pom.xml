@@ -5,7 +5,7 @@
 	<groupId>com.project</groupId>
 	<artifactId>OGG</artifactId>
 	<name>OGG</name>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
 		<java-version>11</java-version>
@@ -31,13 +31,6 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 			<version>${org.springframework-version}</version>
-		</dependency>
-		
-		<!-- Spring Boot Maven Plugin -->
-		<dependency>
-		    <groupId>org.springframework.boot</groupId>
-		    <artifactId>spring-boot-maven-plugin</artifactId>
-		    <version>2.7.5</version>
 		</dependency>
 		
 		<!-- Spring TestContext Framework -->

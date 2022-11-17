@@ -33,13 +33,6 @@
 			<version>${org.springframework-version}</version>
 		</dependency>
 		
-		<!-- Spring Boot Maven Plugin -->
-		<dependency>
-		    <groupId>org.springframework.boot</groupId>
-		    <artifactId>spring-boot-maven-plugin</artifactId>
-		    <version>2.7.5</version>
-		</dependency>
-		
 		<!-- Spring TestContext Framework -->
 		<dependency>
 		    <groupId>org.springframework</groupId>
