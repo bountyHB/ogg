@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-# OGG
-
-<img src="./portfolioIMG/ogg.001.png">
-=======
 # Final Project _ OGG
 
 ## notion 
@@ -10,7 +5,6 @@ https://www.notion.so/5f548504f2eb4fdeb747a80363619751
 
 ## 시연영상
 https://youtu.be/XHX_wdCj69g
-
 
 ## PPT
 ![ogg 001](https://user-images.githubusercontent.com/101177300/201001157-f5b72978-b8c4-4ea6-8058-012c0936f14b.png)
