@@ -5,7 +5,7 @@
 	<groupId>com.project</groupId>
 	<artifactId>OGG</artifactId>
 	<name>OGG</name>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
 		<java-version>11</java-version>
@@ -355,6 +355,18 @@
                     <mainClass>org.test.int1.Main</mainClass>
                 </configuration>
             </plugin>
+            <plugin>
+	            <groupId>org.apache.maven.plugins</groupId>
+	            <artifactId>maven-jar-plugin</artifactId>
+	            <version>3.2.2</version>
+	            <configuration>
+	                <archive>
+	                    <manifest>
+	                        <mainClass>com.project.ogg.HomeController</mainClass>
+	                    </manifest>
+	                </archive>
+	            </configuration>
+	        </plugin>
         </plugins>
     </build>
 </project>
