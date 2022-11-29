@@ -37,4 +37,4 @@ https://youtu.be/XHX_wdCj69g
 ![ogg 028](https://user-images.githubusercontent.com/101177300/201001292-aea95988-ea81-42bf-a6c6-a0817760f6e4.png)
 ![ogg 029](https://user-images.githubusercontent.com/101177300/201001293-21b3c366-db82-412c-a786-6f3bf2b4cda2.png)
 ![ogg 030](https://user-images.githubusercontent.com/101177300/201001295-a8d0f686-7006-4c7b-a97c-a9c72f120e44.png) 
->>>>>>> 0e8ac92c4f2bc226f18e9210a14a2e979eda8e6f
+
